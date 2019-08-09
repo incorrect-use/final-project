@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+</head>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</head>
+<style>
+ h1{color:rgb(255, 255, 255);
+ text-align:center;
+ font-size:70px;
+ margin-top:3cm} 
+ form{color:ghostwhite}
+ p{color:ghostwhite}
+ li{color:blanchedalmond}
+
+ 
+ 
+</style>
+<body background="https://www.visitberlin.de/system/files/styles/visitberlin_hero_visitberlin_desktop_2x/private/image/Renaissance-Theater_%20Zuschauerraum_c_Florian%20Profitlich_c_Renaissance-Theater_DL_PPT_0.jpg?h=76e322cc&itok=I0fAC-i_">
+    <h1>Book your tickets here</h1>
+<p>Hello, this site is created to ease your life in this online world. This website is easy and simple, you just need to log in and create a profile here. 
+    The site will automaticly send you to the most trusted ticket booking site on the internet.</p>
+<br><br>
+<h1>
+ Add your name 
+</h1>
+
+<input id="text" type="text" placeholder="sign in">
+<button id="submit"> new line </button>
+
+<div id="content"></div>
+
+  <div class="form-group">
+    <label for="exampleInputEmail1"></label>
+    <input type="text" class="form-control" id="email" aria-describedby="emailHelp" placeholder="username">
+    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1"></label>
+    <input type="password" class="form-control" id="password" placeholder="Password">
+  </div>
+  <div class="form-group form-check">
+    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+    <label class="form-check-label" for="exampleCheck1">I agree to the terms</label>
+  </div>
+  <button id = "submit" class="btn btn-primary">Submit</button>
+<script>
+    document.getElementById('submit').addEventListener('click', function(){
+        var a = document.getElementById('email').value
+        var b = document.getElementById('password').value
+        if (a == "tickets" && b == "123654"){
+            window.location.href = "https://www.ticketingboxoffice.com/";
+        }
+        if(a=="jeffrey"&& b=="ifoundit"){ 
+        window.location.href = "https://www.mideast.jeep.com/en"    
+            
+        }
+    })
+</script>\
+
+   
+  
+</div>
+<script>
+   
+   document.getElementById('content').innerHTML = localStorage.getItem('listItem');
+    document.getElementById('submit').addEventListener('click', function(){
+       
+       var a = document.createElement('li')
+       var c =document.createElement('input')
+       c.setAttribute('type','checkbox')
+       c.addEventListener('change',checkItem)
+       a.append(c);
+       a.append(document.getElementById('text').value)
+       
+       var b = document.createElement('button');
+       b.addEventListener('click',removeItem)
+       b.innerHTML = "x"
+       a.append(b)
+       
+       
+        
+        document.getElementById('content').append(a);
+        localStorage.setItem('listItem',document.getElementById('content').innerHTML)
+       })
+       function removeItem(){
+        this.parentNode.remove() 
+        localStorage.setItem('listItem',document.getElementById('content').innerHTML)
+          
+       }
+       function checkItem(){
+           this.parentNode.classList.toggle('checked')
+       }
+</script>
+
+</body>
+</html>
